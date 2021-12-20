@@ -151,7 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Candidate.cpp" />
+    <ClCompile Include="Population.cpp" />
     <ClCompile Include="wordEvolution.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Candidate.h" />
+    <ClInclude Include="Population.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
