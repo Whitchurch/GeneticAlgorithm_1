@@ -12,7 +12,8 @@ int main()
 	//Step 1:
 	//Create a population of Candidates. Let's set 10.
 	//Each Candidate has Genome of Length 10, and Fitness score = 0, initially.
-
+	Candidate* c1 = new Candidate();
+	Candidate* c2 = new Candidate();
 
 
 	
