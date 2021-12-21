@@ -1,5 +1,6 @@
-#include "Candidate.h"
 
+#include "Candidate.h"
+#include "GlobalParameters.h"
 using namespace std;
 Candidate::Candidate()
 {

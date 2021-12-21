@@ -41,5 +41,8 @@
     <ClInclude Include="Helper_functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="GlobalParameters.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

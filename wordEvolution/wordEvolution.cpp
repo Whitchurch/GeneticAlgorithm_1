@@ -4,20 +4,22 @@
 #include <iostream>
 #include "Candidate.h"
 #include "Population.h"
+#include "Helper_functions.h"
 using namespace std;
 int main()
 {
 	//Step 0:
     cout << "Start of Genetic Algorithm!\n";
+	string optima = "whitchurch";
 	
 	//Step 1:
-	//Create a population of Candidates. Let's set 10.
-	//Each Candidate has Genome of Length 10, and Fitness score = 0, initially.
-	Population* p1 = new Population();
+	//Create a population of Person/Candidate.
+	//Each Person/Candidate has Genome of Length 10, and Fitness score = 0, initially.
+	Population* generation = new Population();
 
 
-	//Step 2: Pass candidates through evaluation function for fitness
-
+	//Step 2: Calculate the fitness of each Person/Candidate in the population
+	Helper_functions::fitnessRank(generation,optima);
 
 
 

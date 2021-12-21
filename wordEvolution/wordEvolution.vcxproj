@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Candidate.h" />
+    <ClInclude Include="GlobalParameters.h" />
     <ClInclude Include="Helper_functions.h" />
     <ClInclude Include="Population.h" />
   </ItemGroup>
