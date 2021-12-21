@@ -48,3 +48,15 @@ void Helper_functions::sortByBestRankFirst(Population * generation)
 	}
 
 }
+
+void Helper_functions::displayGeneration(Population * generation)
+{
+
+	Candidate *next = generation->candidate;
+	for (int i = 0; i < populationSize; i++)
+	{
+		cout << next[i].fitness << "\t" << next[i].genome << endl;
+
+	}
+
+}

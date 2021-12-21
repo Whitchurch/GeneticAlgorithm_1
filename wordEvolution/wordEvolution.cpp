@@ -25,6 +25,9 @@ int main()
 	//Step 3: Sort the population based on fitness rank.
 	Helper_functions::sortByBestRankFirst(generation);
 
+	//Step 4: Display the sorted Population by fitness:
+	Helper_functions::displayGeneration(generation);
+
 
 	//Final Step: Remove all memory allocations.
 	delete[] generation->candidate;
