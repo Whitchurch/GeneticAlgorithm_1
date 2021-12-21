@@ -30,7 +30,7 @@ void Helper_functions::fitnessRank(Population* p, string optima)
 
 void Helper_functions::sortByBestRankFirst(Population * generation)
 {
-	for (int start = 0; start < populationSize; start++)
+	for (int start = 0; start < (populationSize-1); start++)
 	{
 		//Key to hold the candidate, that is compared against the rest,as the key
 		Candidate key = generation->candidate[start + 1];
@@ -53,10 +53,47 @@ void Helper_functions::displayGeneration(Population * generation)
 {
 
 	Candidate *next = generation->candidate;
-	for (int i = 0; i < populationSize; i++)
+	for (int i = 0; i < (populationSize-1); i++)
 	{
 		cout << next[i].fitness << "\t" << next[i].genome << endl;
 
 	}
 
+}
+
+void Helper_functions::createNewGeneration(Population * generation)
+{
+	for (int i = 0; i < (populationSize-1); i++)
+	{
+		//Elitisim: Candidate 1 & 2 pass unchanged to New Generation:
+
+		//Replace 3rd candidate with pure cross over in New Generation:
+		if (i == 2)
+		{
+			//We reset the fitness to 0, since we need to re-assess fitness after crossover.
+			generation->candidate[i].fitness = 0;
+
+			//We add in the new crossedover genome.
+			generation->candidate[i].genome = Helper_functions::crossover(&generation->candidate[0], &generation->candidate[1]);
+		}
+
+		//Replace 4 - 10 with Alpha Candidate (top-most fitness) Crossover + Mutation:
+		if (i > 2)
+		{
+			//We reset the fitness to 0, since we need to re-assess fitness after crossover.
+			generation->candidate[i].fitness = 0;
+
+			//We add in the new crossedover genome.
+			generation->candidate[i].genome = Helper_functions::crossover(&generation->candidate[0], &generation->candidate[i]);
+
+		}
+	}
+
+}
+
+string Helper_functions::crossover(Candidate * c1, Candidate * c2)
+{
+	string c1Temp;
+	c1Temp = c1->genome.substr(0, 5) + c2->genome.substr(5, 9);
+	return c1Temp;
 }

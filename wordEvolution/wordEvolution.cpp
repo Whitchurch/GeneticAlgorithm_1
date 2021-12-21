@@ -28,6 +28,12 @@ int main()
 	//Step 4: Display the sorted Population by fitness:
 	Helper_functions::displayGeneration(generation);
 
+	//Step 5: Create the new population:
+	Helper_functions::createNewGeneration(generation);
+
+	//Step 4: Display the sorted Population by fitness:
+	Helper_functions::displayGeneration(generation);
+
 
 	//Final Step: Remove all memory allocations.
 	delete[] generation->candidate;
