@@ -152,11 +152,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Candidate.cpp" />
+    <ClCompile Include="Helper_functions.cpp" />
     <ClCompile Include="Population.cpp" />
     <ClCompile Include="wordEvolution.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Candidate.h" />
+    <ClInclude Include="Helper_functions.h" />
     <ClInclude Include="Population.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

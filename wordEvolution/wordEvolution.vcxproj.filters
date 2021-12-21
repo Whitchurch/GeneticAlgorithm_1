@@ -27,12 +27,18 @@
     <ClCompile Include="Population.cpp">
       <Filter>Class</Filter>
     </ClCompile>
+    <ClCompile Include="Helper_functions.cpp">
+      <Filter>Class</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Candidate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Population.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Helper_functions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

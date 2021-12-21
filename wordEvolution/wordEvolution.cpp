@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Candidate.h"
+#include "Population.h"
 using namespace std;
 int main()
 {
@@ -12,8 +13,12 @@ int main()
 	//Step 1:
 	//Create a population of Candidates. Let's set 10.
 	//Each Candidate has Genome of Length 10, and Fitness score = 0, initially.
-	Candidate* c1 = new Candidate();
-	Candidate* c2 = new Candidate();
+	Population* p1 = new Population();
+
+
+	//Step 2: Pass candidates through evaluation function for fitness
+
+
 
 
 	
