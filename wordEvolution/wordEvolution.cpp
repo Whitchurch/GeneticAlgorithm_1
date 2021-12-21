@@ -5,6 +5,7 @@
 #include "Candidate.h"
 #include "Population.h"
 #include "Helper_functions.h"
+#include "GlobalParameters.h"
 using namespace std;
 int main()
 {
@@ -18,11 +19,28 @@ int main()
 	Population* generation = new Population();
 
 
-	//Step 2: Calculate the fitness of each Person/Candidate in the population
+	//Step 2: Calculate the fitness of each Person/Candidate in the population.
 	Helper_functions::fitnessRank(generation,optima);
 
+	//Step 3: Sort the population based on fitness rank.
+	//int sample[4] = { 10,9,8,7};
+	
+	for (int start = 0; start < populationSize ; start++)
+	{
+		//Key to hold the candidate, that is compared against the rest,as the key
+		Candidate key = generation->candidate[start+1];
+		int j = start;
+		while (key.fitness > generation->candidate[j].fitness && j >= 0)
+		{
+			//Slide the bigger candidates to the right, of the Key Candidate
+			generation->candidate[j + 1] = generation->candidate[j];
+			j--;
+			
+		}
 
+		generation->candidate[j + 1] = key;
 
+	}
 	
 }
 
