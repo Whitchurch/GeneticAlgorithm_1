@@ -4,7 +4,7 @@
 class Population
 {
 public:
-	Candidate candidate[10];
+	Candidate *candidate;
 	Population();
 
 };

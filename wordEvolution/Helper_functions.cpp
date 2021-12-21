@@ -27,3 +27,24 @@ void Helper_functions::fitnessRank(Population* p, string optima)
 	}
 
 }
+
+void Helper_functions::sortByBestRankFirst(Population * generation)
+{
+	for (int start = 0; start < populationSize; start++)
+	{
+		//Key to hold the candidate, that is compared against the rest,as the key
+		Candidate key = generation->candidate[start + 1];
+		int j = start;
+		while (key.fitness > generation->candidate[j].fitness && j >= 0)
+		{
+			//Slide the bigger candidates to the right, of the Key Candidate
+			generation->candidate[j + 1] = generation->candidate[j];
+			j--;
+
+		}
+
+		generation->candidate[j + 1] = key;
+
+	}
+
+}
