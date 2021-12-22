@@ -10,7 +10,7 @@ using namespace std;
 int main()
 {
 	//Step 0:
-    cout << "Start of Genetic Algorithm!\n";
+    cout << "Start of Genetic Algorithm!!!\n";
 	string optima = "whitchurch";
 	
 	//Step 1:
@@ -29,7 +29,7 @@ int main()
 		Helper_functions::sortByBestRankFirst(generation);
 
 		//Step 4: Display the sorted Population by fitness:
-		Helper_functions::displayTopMostFitCandidate(generation);
+		//Helper_functions::displayTopMostFitCandidate(generation);
 
 		//Step 5: Create the new population:
 		Helper_functions::createNewGeneration(generation);
@@ -39,13 +39,19 @@ int main()
 
 		
 	}
+	//Step 7: Recalculate fitness
+	Helper_functions::fitnessRank(generation, optima);
 
-	//Step 8: Display all the Candidates in the Generation that hit the fitness value:
+	//Step 8: Sort them from highest to lowest fitness
+	Helper_functions::sortByBestRankFirst(generation);
+
+	//Step 9: Display all the Candidates in the Generation that hit the fitness value:
 	Helper_functions::displayGeneration(generation);
 
 	//Final Step: Remove all memory allocations.
 	delete[] generation->candidate;
 	delete generation;
 
+	cout << "End of Genetic Algorithm !!!" << endl;
 }
 

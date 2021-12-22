@@ -116,7 +116,7 @@ string Helper_functions::mutation(string genenomeToMutate)
 
 	for (int i = 0; i < genenomeToMutate.length(); i++)
 	{
-		if ((float)rand() / RAND_MAX < 0.20)
+		if ((float)rand() / RAND_MAX < 0.10)
 		{
 			int randomNumber = rand() % (sizeof(table) - 1);
 			genenomeToMutate[i] = table[randomNumber];
