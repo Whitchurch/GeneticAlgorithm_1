@@ -75,6 +75,7 @@ void Helper_functions::createNewGeneration(Population * generation)
 
 			//We add in the new crossedover genome.
 			generation->candidate[i].genome = Helper_functions::crossover(&generation->candidate[0], &generation->candidate[1]);
+
 		}
 
 		//Replace 4 - 10 with Alpha Candidate (top-most fitness) Crossover + Mutation:
@@ -86,6 +87,9 @@ void Helper_functions::createNewGeneration(Population * generation)
 			//We add in the new crossedover genome.
 			generation->candidate[i].genome = Helper_functions::crossover(&generation->candidate[0], &generation->candidate[i]);
 
+			//Try introducting mutations into the newly created genome:
+			generation->candidate[i].genome = Helper_functions::mutation(generation->candidate[i].genome);
+
 		}
 	}
 
@@ -96,4 +100,21 @@ string Helper_functions::crossover(Candidate * c1, Candidate * c2)
 	string c1Temp;
 	c1Temp = c1->genome.substr(0, 5) + c2->genome.substr(5, 9);
 	return c1Temp;
+}
+
+string Helper_functions::mutation(string genenomeToMutate)
+{
+	
+	char table[] = { 'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z' };
+
+	for (int i = 0; i < genenomeToMutate.length(); i++)
+	{
+		if ((float)rand() / RAND_MAX < 0.12)
+		{
+			int randomNumber = rand() % (sizeof(table) - 1);
+			genenomeToMutate[i] = table[randomNumber];
+		}
+
+	}	
+	return genenomeToMutate;
 }

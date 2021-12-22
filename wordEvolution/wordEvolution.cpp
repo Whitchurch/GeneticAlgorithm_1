@@ -35,6 +35,9 @@ int main()
 	Helper_functions::displayGeneration(generation);
 
 
+	
+
+
 	//Final Step: Remove all memory allocations.
 	delete[] generation->candidate;
 	delete generation;

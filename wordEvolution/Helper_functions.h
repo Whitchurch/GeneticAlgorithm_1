@@ -11,6 +11,7 @@ public:
 	static void displayGeneration(Population *generation);
 	static void createNewGeneration(Population *generation);
 	static string crossover(Candidate *c1, Candidate *c2);
+	static string mutation(string genenomeToMutate);
 
 };
 
