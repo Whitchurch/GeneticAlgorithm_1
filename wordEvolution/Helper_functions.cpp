@@ -49,6 +49,11 @@ void Helper_functions::sortByBestRankFirst(Population * generation)
 
 }
 
+void Helper_functions::displayTopMostFitCandidate(Population * generation)
+{
+	cout << generation->candidate[0].fitness << "\t" << generation->candidate[0].genome << endl;
+}
+
 void Helper_functions::displayGeneration(Population * generation)
 {
 
@@ -76,6 +81,8 @@ void Helper_functions::createNewGeneration(Population * generation)
 			//We add in the new crossedover genome.
 			generation->candidate[i].genome = Helper_functions::crossover(&generation->candidate[0], &generation->candidate[1]);
 
+			//Try introducting mutations into the newly created genome:
+			generation->candidate[i].genome = Helper_functions::mutation(generation->candidate[i].genome);
 		}
 
 		//Replace 4 - 10 with Alpha Candidate (top-most fitness) Crossover + Mutation:
@@ -109,7 +116,7 @@ string Helper_functions::mutation(string genenomeToMutate)
 
 	for (int i = 0; i < genenomeToMutate.length(); i++)
 	{
-		if ((float)rand() / RAND_MAX < 0.12)
+		if ((float)rand() / RAND_MAX < 0.20)
 		{
 			int randomNumber = rand() % (sizeof(table) - 1);
 			genenomeToMutate[i] = table[randomNumber];
@@ -117,4 +124,15 @@ string Helper_functions::mutation(string genenomeToMutate)
 
 	}	
 	return genenomeToMutate;
+}
+
+bool Helper_functions::fitnessAchieved(Population * p, string optima)
+{
+	for (int candidate = 0; candidate < populationSize; candidate++)
+	{
+		if (p->candidate[candidate].genome == optima)
+		{
+			return false; // return false and stop.
+		}
+	}
 }

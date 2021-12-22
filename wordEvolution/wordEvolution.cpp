@@ -18,25 +18,30 @@ int main()
 	//Each Person/Candidate has Genome of Length 10, and Fitness score = 0, initially.
 	Population *generation = new Population();
 
+	bool repeatGeneration = true;
 
-	//Step 2: Calculate the fitness of each Person/Candidate in the population.
-	Helper_functions::fitnessRank(generation,optima);
+	while (repeatGeneration)
+	{
+		//Step 2: Calculate the fitness of each Person/Candidate in the population.
+		Helper_functions::fitnessRank(generation, optima);
 
-	//Step 3: Sort the population based on fitness rank.
-	Helper_functions::sortByBestRankFirst(generation);
+		//Step 3: Sort the population based on fitness rank.
+		Helper_functions::sortByBestRankFirst(generation);
 
-	//Step 4: Display the sorted Population by fitness:
+		//Step 4: Display the sorted Population by fitness:
+		Helper_functions::displayTopMostFitCandidate(generation);
+
+		//Step 5: Create the new population:
+		Helper_functions::createNewGeneration(generation);
+
+		//Step 6: Check if fitness has been achieved by the Alpha Candidate in the population.
+		repeatGeneration = Helper_functions::fitnessAchieved(generation, optima);
+
+		
+	}
+
+	//Step 8: Display all the Candidates in the Generation that hit the fitness value:
 	Helper_functions::displayGeneration(generation);
-
-	//Step 5: Create the new population:
-	Helper_functions::createNewGeneration(generation);
-
-	//Step 4: Display the sorted Population by fitness:
-	Helper_functions::displayGeneration(generation);
-
-
-	
-
 
 	//Final Step: Remove all memory allocations.
 	delete[] generation->candidate;
